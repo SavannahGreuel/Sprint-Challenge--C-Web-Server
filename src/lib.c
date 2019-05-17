@@ -51,7 +51,7 @@ int get_socket(char *hostname, char *port)
   for(p = servinfo; p != NULL; p = p->ai_next) {
     // Try to make a socket based on this candidate interface
     if ((sockfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1) {
-      perror("client: socket");
+      perror("client: socket\n");
       continue;
     }
 
