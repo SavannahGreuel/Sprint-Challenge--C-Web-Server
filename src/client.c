@@ -7,6 +7,7 @@
 #include <sys/socket.h>
 #include "lib.h"
 
+
 #define BUFSIZE 4096 // max number of bytes we can get at once
 
 /**
@@ -146,16 +147,16 @@ int main(int argc, char *argv[])
   {
     printf("%s\n",buf);
   }
-  free(urlinfo);
+  
   close(sockfd);
-  // urlinfo->port=NULL;
-  // urlinfo->hostname=NULL;
-  // urlinfo->path=NULL;
+  urlinfo->port=NULL;
+  urlinfo->hostname=NULL;
+  urlinfo->path=NULL;
 
   // 5. Clean up any allocated memory and open file descriptors.
   free(urlinfo->port);
   free(urlinfo->path);
   free(urlinfo->hostname);
-  // free(urlinfo);
+  free(urlinfo);
   return 0;
 }
